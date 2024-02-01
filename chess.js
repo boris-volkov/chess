@@ -2,7 +2,6 @@
 const canvas    = document.querySelector("#canvas");
 let cell_width  = 64; // pixels on the display
 
-
 let num_rows = 8;
 let num_cols = 8;
 
@@ -23,7 +22,7 @@ for (let i = 0; i < num_rows; i++){
 canvas.height = grid.length * cell_width;
 canvas.width = grid[0].length * cell_width;
 const c = canvas.getContext("2d");
-c.font = fontSize + 'px Arial';
+c.font = fontSize + "px 'Segoe UI Symbol', 'Arial Unicode MS', 'DejaVu Sans', 'Noto Sans Symbols', 'Symbola', sans-serif";
 
 let selected_piece = 0;
 

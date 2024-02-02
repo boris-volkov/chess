@@ -303,6 +303,8 @@ var keys_down = {
 	'r': false,	'q': false, 	's': false,     'x': false, 'shift': false,
 };
 
+
+
 window.addEventListener('keydown', (event) => {
 	let key = event.key.toLowerCase();
 	if (event.key == "Escape"){
@@ -350,7 +352,6 @@ canvas.onclick = (event) => {
 		return;
 	}
 	if (selected_piece != 0){ // placing the piece
-		console.log("placing", selected_piece);
 		grid[row][col] = selected_piece;
 		if (selected_piece.row != row || selected_piece.col != col){
 			grid[selected_piece.row][selected_piece.col] = 0;
@@ -360,7 +361,6 @@ canvas.onclick = (event) => {
 		selected_piece = 0;
 	} else { // select the piece at this position:
 		selected_piece = grid[row][col];
-		console.log("selected", selected_piece);
 	}
 	let color = white;
 	if (keys_down['shift']){
@@ -368,21 +368,27 @@ canvas.onclick = (event) => {
 	}
 	if (keys_down['n']){
 		let n = new Knight(color, row, col);
+		selected_piece = 0;
 	}
 	if (keys_down['b']){
 		let n = new Bishop(color, row, col);
+		selected_piece = 0;
 	}
 	if (keys_down['r']){
 		let n = new Rook(color, row, col);
+		selected_piece = 0;
 	}
 	if (keys_down['q']){
 		let n = new Queen(color, row, col);
+		selected_piece = 0;
 	}
 	if (keys_down['k']){
 		let n = new King(color, row, col);
+		selected_piece = 0;
 	}
 	if (keys_down['p']){
 		let n = new Pawn(color, row, col);
+		selected_piece = 0;
 	}
 	grid_to_canvas();
 	stroke_grid();

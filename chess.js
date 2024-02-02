@@ -11,6 +11,8 @@ const BOARD_COLOR = '#888888';
 const WHITE_CONTROL = 'rgba(20, 100, 255, 0.3)';
 const BLACK_CONTROL = 'rgba(255,20,100,0.3)';
 const fontSize = 48;
+let hidden = false;
+
 
 let grid = new Array(num_rows);
 for (let i = 0; i < num_rows; i++){
@@ -277,6 +279,8 @@ function grid_to_canvas() {
 			}
 		}
 	}
+
+	if (hidden) return;
 	for (let row = 0; row < grid.length; row++){
 		for (let col = 0; col < grid[0].length; col++){
 			if (grid[row][col] != 0){
@@ -314,6 +318,12 @@ window.addEventListener('keydown', (event) => {
 	if (event.key === 'Shift') {
         	event.preventDefault();
     	}
+
+	if (event.key === "Control"){
+		hidden = !hidden;
+		grid_to_canvas();
+		stroke_grid();
+	}
 
 	if (keys_down.hasOwnProperty(key)){
 		keys_down[key] = true;

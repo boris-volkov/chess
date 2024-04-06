@@ -5,9 +5,9 @@ let cell_width  = 64; // pixels on the display
 let num_rows = 8;
 let num_cols = 8;
 
-let white = '#FFF';
-let black = '#000';
-const BOARD_COLOR = '#888888';
+const white = '#EFEFEF';
+const black = '#000';
+const BOARD_COLOR = '#aaa';
 const WHITE_CONTROL = 'rgba(20, 100, 255, 0.3)';
 const BLACK_CONTROL = 'rgba(255,20,100,0.3)';
 const fontSize = 48;
@@ -329,7 +329,6 @@ window.addEventListener('keydown', (event) => {
 
 	if (keys_down.hasOwnProperty(key)){
 		keys_down[key] = true;
-		console.log(keys_down);
 	}
 });
 
